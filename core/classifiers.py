@@ -214,7 +214,7 @@ class BERTSubclassPredictor(metaclass=Singleton):
             self._load_in_memory()
 
         x = self._to_feature_vector(text)
-        y = self.model.predict_step(x)[0]
+        y = self.model.predict_step(x)
 
         # sort subclasses in descending order of relevancy
         subclasses = [self.subclass_codes[i] for i in np.argsort(y)[::-1]]
